@@ -27,13 +27,13 @@ long long f(long long a){
 class LittleElephantAndPermutationDiv2 {
 public:
 	long long getNumber(int N, int K) {
-        vector<int>vec(N);ll ans=0;
+        vector<int>vec(N);long long ans=0;
         for(int i=0;i<N;i++)vec[i]=i+1;
-        do(
+        do{
             int k=0;
             for(int i=0;i<N;i++)k+=max(i+1,vec[i]);
             if(k>=K)ans++;
-        )while(next_permutation(vec.begin(),vec.end()));
+	}while(next_permutation(vec.begin(),vec.end()));
         return ans*f(N);
 	}
 };
