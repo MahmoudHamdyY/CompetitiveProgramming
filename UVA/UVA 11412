@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#include <algorithm>
+#define ll long long
+#define ull unsigned long long
+#define ld long double
+#define f first
+#define s second
+#define PI acos(-1)
+#define CS ios_base::sync_with_stdio(0);cin.tie(0);
+using namespace std;
+bool ch(string hole,string gues,int n,int m){
+    int a=0,b=0;
+    for(int i=0;i<4;i++){
+        if(hole[i]==gues[i])a++;
+        else {
+            for(int j=0;j<4;j++)if(hole[i]==gues[j]){b++;break;}
+        }
+    }
+    return (a==n&&b==m);
+}
+int main(){
+    int t;cin>>t;
+    while(t--){
+        string s1,s2;int n1,m1,n2,m2;
+        cin>>s1>>n1>>m1>>s2>>n2>>m2;
+        string col="BGORVY";
+        bool cheat=1;
+        do{
+            string hole="";
+            for(int i=0;i<4;i++)hole+=col[i];
+            if(ch(hole,s1,n1,m1)&&ch(hole,s2,n2,m2)){cheat=0;break;}
+        }while(next_permutation(col.begin(),col.end()));
+        if(cheat)cout<<"Cheat\n";
+        else cout<<"Possible\n";
+    }
+    return 0;
+}
