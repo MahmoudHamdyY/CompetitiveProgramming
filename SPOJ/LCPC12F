@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#include <algorithm>
+#define ll long long
+#define ull unsigned long long
+#define ld long double
+#define f first
+#define s second
+#define PI acos(-1)
+#define CS ios_base::sync_with_stdio(0);cin.tie(0);
+using namespace std;
+
+int con[10001];
+int main(){
+    int t;cin>>t;
+    for(int T=1;T<=t;T++){
+        memset(con,0,sizeof con);
+        int x,n;cin>>x>>n;
+        ll ans=0;
+        for(int i=0;i<n;i++){
+            int a;cin>>a;
+            if(a>x)continue;
+            ans+=con[x-a];
+            con[a]++;
+        }
+        cout<<T<<". "<<ans;
+        if(T<t)cout<<'\n';
+    }
+    return 0;
+}
