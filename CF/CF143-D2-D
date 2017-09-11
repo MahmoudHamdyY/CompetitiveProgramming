@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+#include <algorithm>
+#define ll long long
+#define ull unsigned long long
+#define ld long double
+#define f first
+#define s second
+#define PI acos(-1)
+#define CS ios_base::sync_with_stdio(0);cin.tie(0);
+using namespace std;
+
+int main(){
+    int n,m;cin>>n>>m;
+    if(n>m)swap(n,m);
+    if(n==1)cout<<m;
+    else if(n==2)cout<<4*(m/4)+2*min(2,m%4);
+    else cout<<m*n - ((m*n)/2);
+    return 0;
+}
